@@ -4,19 +4,40 @@ function startGame() {
   canvas.style.display = "block";
   const ctx = canvas.getContext("2d");
 
-  let carX = 375;
-  let carY = 500;
+  const car = {
+    x: 375,
+    y: 500,
+    width: 50,
+    height: 80,
+    speed: 5,
+    color: "#f00"
+  };
 
-  function draw() {
-    ctx.fillStyle = "#222";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  const keys = {
+    ArrowUp: false,
+    ArrowDown: false,
+    ArrowLeft: false,
+    ArrowRight: false
+  };
 
-    // Carro
-    ctx.fillStyle = "#f00";
-    ctx.fillRect(carX, carY, 50, 80);
+  document.addEventListener("keydown", (e) => {
+    if (e.key in keys) keys[e.key] = true;
+  });
 
-    requestAnimationFrame(draw);
+  document.addEventListener("keyup", (e) => {
+    if (e.key in keys) keys[e.key] = false;
+  });
+
+  function update() {
+    if (keys.ArrowUp) car.y -= car.speed;
+    if (keys.ArrowDown) car.y += car.speed;
+    if (keys.ArrowLeft) car.x -= car.speed;
+    if (keys.ArrowRight) car.x += car.speed;
+
+    // Limite de tela
+    car.x = Math.max(0, Math.min(canvas.width - car.width, car.x));
+    car.y = Math.max(0, Math.min(canvas.height - car.height, car.y));
   }
 
-  draw();
-}
+  function draw() {
+    ctx.fill
