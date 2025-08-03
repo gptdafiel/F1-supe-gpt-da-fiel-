@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>F1 Super GPT da Fiel</title>
-  <link rel="stylesheet" href="../src/style.css" />
-</head>
-<body>
-  <h1>🏁 F1 Super GPT da Fiel 🏁</h1>
-  <canvas id="jogo" width="800" height="600"></canvas>
-  <script src="../src/main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>F1 Super GPT da Fiel</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="menu">
+      <h1>F1 Super GPT da Fiel</h1>
+      <button onclick="startGame()">Iniciar Corrida</button>
+    </div>
+
+    <canvas id="gameCanvas" width="800" height="600" style="display: none;"></canvas>
+
+    <script src="main.js"></script>
+  </body>
 </html>
