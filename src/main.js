@@ -1,9 +1,22 @@
-const canvas = document.getElementById("jogo");
-const ctx = canvas.getContext("2d");
+function startGame() {
+  document.querySelector(".menu").style.display = "none";
+  const canvas = document.getElementById("gameCanvas");
+  canvas.style.display = "block";
+  const ctx = canvas.getContext("2d");
 
-ctx.fillStyle = "#111";
-ctx.fillRect(0, 0, canvas.width, canvas.height);
+  let carX = 375;
+  let carY = 500;
 
-ctx.fillStyle = "#fff";
-ctx.font = "32px Arial";
-ctx.fillText("F1 Super GPT da Fiel - EM BREVE!", 100, 300);
+  function draw() {
+    ctx.fillStyle = "#222";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Carro
+    ctx.fillStyle = "#f00";
+    ctx.fillRect(carX, carY, 50, 80);
+
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+}
